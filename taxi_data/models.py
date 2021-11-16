@@ -23,6 +23,7 @@ class TaxiData(models.Model):
 
     class Meta:
         db_table = 'nyc_taxi_data'
+        ordering = ['id']
 
     def __str__(self):
         return self.vendor_id
