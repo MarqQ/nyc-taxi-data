@@ -1,12 +1,17 @@
 from rest_framework import generics
 from rest_framework.generics import get_object_or_404
 
+from rest_framework import viewsets
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework import mixins
+
 from .models import TaxiData
 from .serializers import TaxiDataSerializer
 
 
 class TaxiAPIView(generics.ListCreateAPIView):
-    queryset = TaxiData.objects.all()[:10]
+    queryset = TaxiData.objects.all()
     serializer_class = TaxiDataSerializer
 
 
@@ -19,3 +24,18 @@ class TaxiRetrieveAPIView(generics.RetrieveUpdateDestroyAPIView):
             return get_object_or_404(self.get_queryset(),
                                      pk=self.kwargs.get('pk'))
         return get_object_or_404(self.get_queryset(), pk=self.kwargs.get('pk'))
+
+
+"""
+API V2
+"""
+
+
+class TaxiAPIViewSet(viewsets.ModelViewSet):  # mixins.ListModelMixin, viewsets.GenericViewSet
+    queryset = TaxiData.objects.all()
+    serializer_class = TaxiDataSerializer
+
+
+class TaxiRetrieveAPIViewSet(generics.RetrieveUpdateDestroyAPIView):
+    queryset = TaxiData.objects.all()
+    serializer_class = TaxiDataSerializer

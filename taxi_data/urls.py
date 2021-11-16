@@ -1,5 +1,10 @@
 from django.urls import path
-from .views import TaxiAPIView, TaxiRetrieveAPIView
+from rest_framework.routers import SimpleRouter
+from .views import TaxiAPIView, TaxiRetrieveAPIView, TaxiAPIViewSet, TaxiRetrieveAPIViewSet
+
+
+router = SimpleRouter()
+router.register('taxi_data', TaxiAPIViewSet)
 
 
 urlpatterns = [
