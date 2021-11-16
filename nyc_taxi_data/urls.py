@@ -19,8 +19,5 @@ from django.urls import path, include
 from taxi_data.urls import router
 
 urlpatterns = [
-    path('api/v1/', include('taxi_data.urls')),
-    path('api/v2/', include(router.urls)),
-    path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
+    path('api/v1/', include(router.urls)),
 ]
