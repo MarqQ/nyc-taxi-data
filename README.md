@@ -62,6 +62,7 @@ Tips average
 SELECT AVG(tip_amount)::numeric(10,2)
 FROM public.nyc_taxi_data;
 ```
+These queries will be available on Jupyter in an upcoming release
 
 ### If you have any suggestions, please feel free to propose a pull request.
 
