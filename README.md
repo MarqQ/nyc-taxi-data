@@ -44,6 +44,25 @@ After initial configuration, you need to create dataset environment:
 otherwise download the file from https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2020-01.csv
 * Run dataset_loader.ipynb scripts
 
+### Here are some queries for PostgreSQL
+
+Taxi trips less than $5
+```
+SELECT COUNT (total_amount)
+	FROM public.nyc_taxi_data
+	WHERE total_amount <= 5.0 AND total_amount >= 0.0;
+```
+Amount average
+```
+SELECT AVG(total_amount)::numeric(10,2)
+FROM public.nyc_taxi_data;
+```
+Tips average
+```
+SELECT AVG(tip_amount)::numeric(10,2)
+FROM public.nyc_taxi_data;
+```
+
 ### If you have any suggestions, please feel free to propose a pull request.
 
 P.S: This project is for study purposes, but I realized that there are many possibilities to scale and grow,
