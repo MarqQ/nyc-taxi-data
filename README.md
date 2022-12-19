@@ -1,5 +1,5 @@
 # NYC Taxi Data
-API TLC Trip Record Data
+ETL and API for Taxi and Limousine Commission (TLC) Trip Record Data
 
 Last Update: Nov, 16th 2021
 
@@ -12,9 +12,9 @@ This project was developed with:
 * Django Rest Framework
 * PostgreSQL 14
 
-To run this project localy:
+To run this project locally:
 
-LINUX/McOS
+LINUX/macOS
 ```
 git clone
 cd nyc-taxi-data
@@ -36,15 +36,15 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
 ```
-After initial configuration, you need to create dataset environment:
+After initial configuration, you need to create a dataset environment:
 
-* Restore the PostgreSQL database file to your pgadmin (o arquivo está em nyc-taxi-data/backup_for_testing)
-* Restore Insomnia file to your Insomnia app for requisition tests
-* Check if the csv file is in the dataset folder, 
-otherwise download the file from https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2020-01.csv
+* You can restore the PostgreSQL database file to your pgAdmin (the file is in nyc-taxi-data/backup_for_testing directory)
+* You can restore Insomnia file to your Insomnia app for requisition tests
+* Check if the csv file is in the dataset folder, the extract comes from this directory, 
+  otherwise download the file from https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2020-01.csv
 * Run dataset_loader.ipynb scripts
 
-### Here are some queries for PostgreSQL
+### Here are some queries for PostgreSQL after ETL process:
 
 Taxi trips less than $5
 ```
@@ -66,6 +66,5 @@ These queries will be available on Jupyter in an upcoming release
 
 ### If you have any suggestions, please feel free to propose a pull request.
 
-P.S: This project is for study purposes, but I realized that there are many possibilities to scale and grow,
-This project is for study purposes, but I realized that there are many possibilities to scale and grow, 
-it's possible that there will be changes over time.
+NOTE: This project is for study purposes, but working on it, I realized that there are many possibilities to scale and grow, so
+it is possible that there are changes over time.
